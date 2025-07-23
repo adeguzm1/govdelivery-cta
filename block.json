@@ -1,0 +1,36 @@
+{
+    "apiVersion": 2,
+    "name": "govdelivery/cta",
+    "title": "GovDelivery CTA",
+    "category": "widgets",
+    "icon": "megaphone",
+    "description": "Accessible CTA block for GovDelivery subscriptions.",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./govdelivery-cta.css",
+    "style": "file:./govdelivery-cta.css",
+    "supports": {
+        "html": false
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Stay Informed"
+        },
+        "description": {
+            "type": "string",
+            "default": "Get the latest updates from our services."
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Subscribe"
+        },
+        "actionType": {
+            "type": "string",
+            "default": "account"
+        },
+        "topicId": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.govdelivery-cta {
+    background-color: #f4f8ff;
+    border: 2px solid #21567c;
+    padding: 1.5em;
+    margin: 2em 0;
+    border-radius: 6px;
+}
+
+.govdelivery-cta h2 {
+    margin-top: 0;
+}
+
+.govdelivery-cta form {
+    margin-top: 1em;
+}
+
+.govdelivery-cta input[type="email"] {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.6em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+}
+
+.govdelivery-cta .gd-cta-btn {
+    background-color: #004785;
+    color: #fff;
+    padding: 0.6em 1.2em;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.govdelivery-cta .gd-cta-btn:focus {
+    outline: 3px solid #ffbf47;
+}
