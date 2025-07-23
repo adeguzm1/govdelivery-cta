@@ -49,34 +49,35 @@ function govdelivery_cta_render_callback($attributes)
 
 
     ob_start();
+    // error_log('GovDelivery CTA render callback hit');
 ?>
-    <section class="govdelivery-cta" aria-labelledby="govdelivery-cta-title">
-        <h2 id="govdelivery-cta-title"><?php echo esc_html($title); ?></h2>
-        <p><?php echo $desc; ?></p>
+<section class="govdelivery-cta" aria-labelledby="govdelivery-cta-title">
+    <h2 id="govdelivery-cta-title"><?php echo esc_html($title); ?></h2>
+    <p><?php echo $desc; ?></p>
 
-        <?php if ($actionType === 'account') : ?>
-            <form action="https://public.govdelivery.com/accounts/<?php echo esc_attr($accountId); ?>/subscribers/qualify"
-                method="post" accept-charset="UTF-8">
-                <fieldset>
-                    <legend><?php esc_html_e('Subscribe to Email Updates', 'govdelivery-cta'); ?></legend>
-                    <label for="gd-email-account"><?php esc_html_e('Email Address', 'govdelivery-cta'); ?></label>
-                    <input type="email" name="email" id="gd-email-account" required aria-required="true" />
-                    <input type="submit" value="<?php echo $button; ?>" class="gd-cta-btn" />
-                </fieldset>
-            </form>
-        <?php else : ?>
-            <form action="https://public.govdelivery.com/accounts/<?php echo esc_attr($accountId); ?>/subscribers/qualify"
-                method="post" accept-charset="UTF-8">
-                <input type="hidden" name="topic_id" value="<?php echo esc_attr($topicId); ?>" />
-                <fieldset>
-                    <legend><?php esc_html_e('Subscribe to Topic', 'govdelivery-cta'); ?></legend>
-                    <label for="gd-email-topic"><?php esc_html_e('Email Address', 'govdelivery-cta'); ?></label>
-                    <input type="email" name="email" id="gd-email-topic" required aria-required="true" />
-                    <input type="submit" value="<?php echo $button; ?>" class="gd-cta-btn" />
-                </fieldset>
-            </form>
-        <?php endif; ?>
-    </section>
+    <?php if ($actionType === 'account') : ?>
+    <form action="https://public.govdelivery.com/accounts/<?php echo esc_attr($accountId); ?>/subscribers/qualify"
+        method="post" accept-charset="UTF-8">
+        <fieldset>
+            <legend><?php esc_html_e('Subscribe to Email Updates', 'govdelivery-cta'); ?></legend>
+            <label for="gd-email-account"><?php esc_html_e('Email Address', 'govdelivery-cta'); ?></label>
+            <input type="email" name="email" id="gd-email-account" required aria-required="true" autocomplete="email" />
+            <input type="submit" value="<?php echo $button; ?>" class="gd-cta-btn" />
+        </fieldset>
+    </form>
+    <?php else : ?>
+    <form action="https://public.govdelivery.com/accounts/<?php echo esc_attr($accountId); ?>/subscribers/qualify"
+        method="post" accept-charset="UTF-8">
+        <input type="hidden" name="topic_id" value="<?php echo esc_attr($topicId); ?>" />
+        <fieldset>
+            <legend><?php esc_html_e('Subscribe to Topic', 'govdelivery-cta'); ?></legend>
+            <label for="gd-email-topic"><?php esc_html_e('Email Address', 'govdelivery-cta'); ?></label>
+            <input type="email" name="email" id="gd-email-topic" required aria-required="true" autocomplete="email" />
+            <input type="submit" value="<?php echo $button; ?>" class="gd-cta-btn" />
+        </fieldset>
+    </form>
+    <?php endif; ?>
+</section>
 <?php
     return ob_get_clean();
 }
@@ -135,8 +136,8 @@ function govdelivery_cta_account_id_field()
 {
     $value = get_option('govdelivery_cta_account_id', '');
 ?>
-    <input type="text" name="govdelivery_cta_account_id" value="<?php echo esc_attr($value); ?>" class="regular-text" />
-    <p class="description"><?php esc_html_e('Your GovDelivery account ID (e.g., CASAND).', 'govdelivery-cta'); ?></p>
+<input type="text" name="govdelivery_cta_account_id" value="<?php echo esc_attr($value); ?>" class="regular-text" />
+<p class="description"><?php esc_html_e('Your GovDelivery account ID (e.g., CASAND).', 'govdelivery-cta'); ?></p>
 <?php
 }
 
@@ -149,15 +150,15 @@ function govdelivery_cta_render_settings_page()
         return;
     }
 ?>
-    <div class="wrap">
-        <h1><?php esc_html_e('GovDelivery CTA Settings', 'govdelivery-cta'); ?></h1>
-        <form method="post" action="options.php">
-            <?php
+<div class="wrap">
+    <h1><?php esc_html_e('GovDelivery CTA Settings', 'govdelivery-cta'); ?></h1>
+    <form method="post" action="options.php">
+        <?php
             settings_fields('govdelivery_cta_options');
             do_settings_sections('govdelivery_cta');
             submit_button();
             ?>
-        </form>
-    </div>
+    </form>
+</div>
 <?php
 }
