@@ -4,13 +4,16 @@
     "title": "GovDelivery CTA",
     "category": "widgets",
     "icon": "megaphone",
-    "description": "Accessible CTA block for GovDelivery subscriptions.",
+    "description": "A call-to-action block that allows visitors to subscribe via GovDelivery.",
+    "keywords": [
+        "subscribe",
+        "newsletter",
+        "govdelivery"
+    ],
+    "textdomain": "govdelivery-cta",
     "editorScript": "file:./build/index.js",
     "editorStyle": "file:./govdelivery-cta.css",
     "style": "file:./govdelivery-cta.css",
-    "supports": {
-        "html": false
-    },
     "attributes": {
         "title": {
             "type": "string",
@@ -18,7 +21,7 @@
         },
         "description": {
             "type": "string",
-            "default": "Get the latest updates from our services."
+            "default": "Get email updates from our programs and services."
         },
         "buttonText": {
             "type": "string",
@@ -32,5 +35,8 @@
             "type": "string",
             "default": ""
         }
+    },
+    "supports": {
+        "html": false
     }
 }
